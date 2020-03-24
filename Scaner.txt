@@ -1,0 +1,92 @@
+To calss varibales
+
+//  private val executor = Executors.newSingleThreadExecutor()
+ //   private lateinit var viewFinder: TextureView
+
+
+To onCreate
+  /*  viewFinder = view?.findViewById(R.id.view_finder)!!
+        viewFinder.systemUiVisibility = FLAGS_FULLSCREEN
+        viewFinder.post(){startCamera()}
+        viewFinder.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
+            updateTransform()                }*/
+
+
+
+ private fun startCamera() {
+        val previewConfig = PreviewConfig.Builder().apply {
+            setTargetResolution(Size(640, 480))
+        }.build()
+
+        val preview = Preview(previewConfig)
+
+        preview.setOnPreviewOutputUpdateListener {
+
+            val parent = viewFinder.parent as ViewGroup
+            parent.removeView(viewFinder)
+            parent.addView(viewFinder, 0)
+
+            viewFinder.surfaceTexture = it.surfaceTexture
+            updateTransform()
+        }
+
+        val imageAnalysisConfig = ImageAnalysisConfig.Builder()
+            .setTargetRotation(viewFinder.display.rotation)
+            .build()
+
+        val imageAnalysis =
+            ImageAnalysis(imageAnalysisConfig).apply { setAnalyzer(executor, ImageAnalyzer()) }
+
+
+        CameraX.bindToLifecycle(this, preview, imageAnalysis)
+
+
+
+    }
+    private fun updateTransform() {
+        // TODO: Implement camera viewfinder transformations
+        val matrix = Matrix()
+        val centerX = viewFinder.width / 2f
+        val centerY = viewFinder.height / 2f
+        val rotationDegrees = when (viewFinder.display.rotation) {
+            Surface.ROTATION_0 -> 0
+            Surface.ROTATION_90 -> 90
+            Surface.ROTATION_180 -> 180
+            Surface.ROTATION_270 -> 270
+            else -> return
+        }
+        matrix.postRotate(-rotationDegrees.toFloat(), centerX, centerY)
+        viewFinder.setTransform(matrix)
+    }
+}
+
+class ImageAnalyzer : ImageAnalysis.Analyzer {
+
+
+    private fun degreesToFirebaseRotation(degrees: Int): Int = when (degrees) {
+        0 -> FirebaseVisionImageMetadata.ROTATION_0
+        90 -> FirebaseVisionImageMetadata.ROTATION_90
+        180 -> FirebaseVisionImageMetadata.ROTATION_180
+        270 -> FirebaseVisionImageMetadata.ROTATION_270
+        else -> throw Exception("Rotation must be 0, 90, 180, or 270.")
+    }
+
+    override fun analyze(imageProxy: ImageProxy?, degrees: Int) {
+        val mediaImage = imageProxy?.image
+        val imageRotation = degreesToFirebaseRotation(degrees)
+        if (mediaImage != null) {
+
+            val image = FirebaseVisionImage.fromMediaImage(mediaImage, imageRotation)
+            val options = FirebaseVisionBarcodeDetectorOptions.Builder()
+                .setBarcodeFormats(FirebaseVisionBarcode.FORMAT_ALL_FORMATS).build()
+            val detector = FirebaseVision.getInstance().getVisionBarcodeDetector(options)
+            detector.detectInImage(image)
+                .addOnSuccessListener() {
+
+
+
+                }
+                .addOnFailureListener() { Log.d("CameraXApp", "no_barcode") }
+
+        }
+    }  

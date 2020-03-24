@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/TextViewO0"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
+        android:text="Код был отсканирован ранее"
+        android:textAlignment="center"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/TextViewOl"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
+        android:text="py"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/TextViewO2"
+
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
+        android:text="ру"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/TextViewO3"
+
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="5dp"
+        android:text="ру"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/editButton"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="Редактировать"
+        android:onClick="onEditClick"
+        android:layout_marginTop="20dp"/>
+
+
+
+</LinearLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.barcodescaner.DataAnalysysFragments.EditData"
+    android:orientation="vertical">
+
+
+
+    <EditText
+        android:id="@+id/EditText011"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:singleLine="true"/>
+
+    <EditText
+        android:id="@+id/EditText012"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EditText011"
+        android:singleLine="true"/>
+
+    <EditText
+        android:id="@+id/EditText013"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EditText012"
+        android:singleLine="true"/>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/Save"
+        android:onClick="onSaveClick"
+        app:layout_constraintTop_toBottomOf="@id/EditText013"
+        app:layout_constraintEnd_toStartOf="@id/delite"
+        app:layout_constraintBottom_toTopOf="@id/delite"
+        tools:layout_editor_absoluteX="106dp"
+        tools:ignore="OnClick" />
+
+    <Button
+        android:id="@+id/delite"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="70dp"
+        android:text="@string/delite"
+        app:layout_constraintTop_toBottomOf="@id/save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="40dp"
+        tools:layout_editor_absoluteX="106dp"
+
+         />
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">BarcodeSaver</string>
+    <string name="entry_scan">Сканировать код</string>
+    <string name="entry_scan_subtitle"></string>
+    <string name="entry_view">Просмотреть файл со сканированными кодами</string>
+    <string name="entry_view_subtitle"></string>
+    <string name="dialog_fire_missiles">Вы запретили доступ к камере</string>
+    <string name="ok">Разрешить</string>
+    <string name="cancel">Запретить</string>
+    <string name="record_text">Записи</string>
+    <string name="open_main_or_scan">Выйти на главный экран или отсканировать код?</string>
+    <string name="main_screen">Главный экран</string>
+    <string name="scan_code">Сканировать код</string>
+    <string name="abort">Отмена</string>
+    <string name="file_path">/storage/emulated/0/Documents/QRCodes.txt</string>
+    <string name="Want_to_exit">Хотите Выйти?</string>
+    <string name="Yes">Да</string>
+    <string name="delite_error">Ошибка удаления записи</string>
+    <string name="record_dellited">Запись удалена</string>
+    <string name="Edit_error">Ошибка редактирования записи</string>
+    <string name="record_editted">Запись отредактирована</string>
+    <string name="No_records_file">Невозможно создать файл</string>
+    <string name="cant_create_file">Файл невозможно создать</string>
+    <string name="Exit">Выход</string>
+    <string name="storage_acces_denied">Доступ к хранилищу отклонен</string>
+    <string name="Your_denied_storage_access">Вы запретили доступ приложения к хранилищу</string>
+    <string name="permi_acces">Разрешить доступ</string>
+    <string name="record_added">Запись добавлена</string>
+    <string name="adding_data_error">Ошибка добавления записи</string>
+    <string name="delite">Удалить</string>
+    <string name="Save">Сохранить</string>
+    <string name="message_text">Удалить запись?</string>
+    <string name="No">Нет</string>
+    <string name="purge_file">Хотите очистить файл?</string>
+    <string name="dirPath">/storage/emulated/0/Documents</string>
+</resources>
